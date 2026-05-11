@@ -31,7 +31,11 @@
         try {
             const raw = localStorage.getItem('lb_blog_posts');
             const arr = raw ? JSON.parse(raw) : [];
-            // newest first, take top 6 for a nicer loop
+            // Clear old .html links
+            if (arr.some(p => p.href && p.href.includes('.html'))) {
+                localStorage.removeItem('lb_blog_posts');
+                return [];
+            }
             arr.sort((a, b) => (b.dateISO || '') < (a.dateISO || '') ? -1 : 1);
             return arr.slice(0, 6);
         } catch { return []; }
