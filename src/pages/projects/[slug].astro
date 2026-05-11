@@ -35,7 +35,6 @@ const { Content } = await render(project);
 <div class="main-layout">
     <div class="content-backdrop">
         <header id="hero">
-            {project.data.image && <img src={project.data.image} alt={project.data.title} class="project-img" />}
             <h1>{project.data.title}</h1>
             <p class="intro-text">{project.data.description}</p>
         </header>
