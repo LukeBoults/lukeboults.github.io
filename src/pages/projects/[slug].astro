@@ -1,0 +1,77 @@
+---
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map(project => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{project.data.title} - Luke Boulter</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a class="home-btn" href="/">Home</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/ppitch">Project Pitch</a></li>
+        </ul>
+    </nav>
+
+<div class="main-layout">
+    <div class="content-backdrop">
+        <header id="hero">
+            {project.data.image && <img src={project.data.image} alt={project.data.title} class="project-img" />}
+            <h1>{project.data.title}</h1>
+            <p class="intro-text">{project.data.description}</p>
+        </header>
+
+        <hr>
+
+        <div class="project-layout">
+            <div class="project-content">
+                <Content />
+            </div>
+
+            {project.data.gallery && project.data.gallery.length > 0 && (
+                <div class="project-gallery">
+                    <h2>Gallery</h2>
+                    <div class="gallery">
+                        {project.data.gallery.map(img => (
+                            <img src={img} alt={project.data.title} />
+                        ))}
+                    </div>
+                </div>
+            )}
+        </div>
+    </div>
+</div>
+
+    <footer id="contact">
+        <p>2025 Luke Boulter All rights reserved</p>
+    </footer>
+
+    <div id="little-man">
+        <img id="man-image" src="/Images/maninactive.gif" alt="Little Man">
+        <div id="speech-bubble"></div>
+    </div>
+    <img id="ufo" src="/Images/ufo.png" alt="UFO">
+
+    <script is:inline src="/littleman.js"></script>
+    <script is:inline src="/lightbox.js"></script>
+</body>
+</html>

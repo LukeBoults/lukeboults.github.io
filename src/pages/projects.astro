@@ -42,7 +42,7 @@ projects.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
                 {projects.map(project => (
                     <div class="project-row">
                         <h2>{project.data.title}</h2>
-                        <a class="project-card" href={project.data.link}>
+                        <a class="project-card" href={project.data.link ?? `/projects/${project.id}`}>
                             <img src={project.data.image} alt={`${project.data.title} Screenshot`} class="project-img" />
                             <div class="overlay">
                                 <div class="overlay-content">
