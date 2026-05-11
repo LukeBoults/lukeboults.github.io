@@ -2,9 +2,6 @@ backend:
   name: github
   repo: LukeBoults/lukeboults.github.io
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
-  site_domain: boulterdev.netlify.app
 
 media_folder: "public/Images"
 public_folder: "/Images"
