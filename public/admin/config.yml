@@ -4,6 +4,7 @@ backend:
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
+  site_domain: frabjous-sable-73189b.netlify.app
 
 media_folder: "public/Images"
 public_folder: "/Images"
