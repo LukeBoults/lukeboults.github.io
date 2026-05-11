@@ -1,3 +1,9 @@
+---
+import { getCollection } from 'astro:content';
+const passionsData = await getCollection('passions');
+const passions = passionsData[0].data;
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +62,7 @@
                     View some of my projects here!
                 </p>
                 <div class="social-links">
-                    <a href="projects.html" class="project-btn">Projects</a>
+                    <a href="/projects" class="project-btn">Projects</a>
                 </div>
             </section>
 
@@ -89,10 +95,10 @@
             <section id="currently-working">
                 <h2>Passions</h2>
                 <ul>
-                    <li><strong>Working on:</strong> Animations For Turtle Warriors</li>
-                    <li><strong>Learning:</strong> Texturing In Blender</li>
-                    <li><strong>Current Addiction:</strong> Old School Runescape</li>
-                    <li><strong>Favourite Song:</strong> "Easy Lover" By Philip Bailey, Phil Collins</li>
+                    <li><strong>Working on:</strong> {passions.working_on}</li>
+                    <li><strong>Learning:</strong> {passions.learning}</li>
+                    <li><strong>Current Addiction:</strong> {passions.current_addiction}</li>
+                    <li><strong>Favourite Song:</strong> {passions.favourite_song}</li>
                 </ul>
             </section>
         </div>
