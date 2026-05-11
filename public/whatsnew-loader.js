@@ -15,7 +15,7 @@
         render(posts);
     } else if (location.protocol.startsWith('http')) {
         // Hosted: try fetch fallback
-        fetch('blog.html', { cache: 'no-store' })
+        fetch('/blog', { cache: 'no-store' })
             .then(r => r.text())
             .then(html => {
                 posts = scrapeFromHtml(html);
@@ -49,7 +49,7 @@
                 || dateEl?.textContent?.trim() || '';
             const pillClass = card.querySelector('.post-tag')?.classList?.value?.split(' ').find(c => /^pill-/.test(c)) || '';
             const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-            return { title, href: `blog.html#${slug}`, pillClass, dateISO };
+            return { title, href: `/blog#${slug}`, pillClass, dateISO };
         }).filter(p => p.title);
         items.sort((a, b) => (b.dateISO || '') < (a.dateISO || '') ? -1 : 1);
         return items.slice(0, 6);
@@ -57,7 +57,7 @@
 
     function render(arr) {
         if (!arr.length) {
-            container.innerHTML = `<a href="blog.html" class="blog-btn">View blog updates →</a>`;
+            container.innerHTML = `<a href="/blog" class="blog-btn">View blog updates →</a>`;
             return;
         }
 

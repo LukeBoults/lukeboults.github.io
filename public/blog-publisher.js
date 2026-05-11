@@ -19,7 +19,7 @@
             || (dateEl && dateEl.textContent.trim())) || '';
         const date = new Date(dateISO);
         const slug = slugify(title);
-        const href = `blog.html#${slug}`;
+        const href = `/blog#${slug}`;
         const pillClass = tagEl ? Array.from(tagEl.classList).find(c => /^pill-/.test(c)) : '';
         const thumb = thumbEl ? thumbEl.getAttribute('src') : '';
         const excerpt = excerptEl ? excerptEl.textContent.trim() : '';
