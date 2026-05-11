@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luke Boulter: Game Developer</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a class="home-btn" href="/">Home</a></li>
+            <li><a href="projects">Projects</a></li>
+            <li><a href="blog">Blog</a></li>
+            <li><a href="ppitch">Project Pitch</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-layout">
+        <div class="content-backdrop">
+            <header id="hero">
+                <div class="header-flex">
+                    <img src="./Images/lukepicture.jpg" alt="Luke Boulter" class="profile-pic" />
+                    <div class="my-name">
+                        <h1>Luke Boulter: Game Developer</h1>
+                        <p class="intro-text">
+                            Nice to meet you! I'm a game developer based in Brisbane with a passion for immersive worlds and engaging mechanics.
+                            I aim to create compelling, interactive experiences that can connect with players.
+                        </p>
+                        <p class="contact-line">
+                            <strong>Get in Touch!</strong>  lbenquiries2672@gmail.com
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-btn">Steam</a>
+                            <a href="https://www.linkedin.com/in/luke-boulter-5b6928321" class="social-btn">LinkedIn</a>
+                            <a href="https://itch.io/LukeBoulter" class="social-btn">itch.io</a>
+                            <a href="https://drive.google.com/file/d/167-7lRRfZ_g6IwpOa4VLDSiGxL2RuUup/view?usp=sharing" class="social-btn">Resume</a>
+                        </div>
+                    </div>
+                </div>
+
+            </header>
+
+            <hr>
+
+            <section id="projects">
+                <h2>More About Me</h2>
+                <p class="intro-text">
+                    During my bachelor’s degree, I developed a broad range of skills that make me a valuable addition to any team.
+                    I’ve gained strong experience with Unity, Unreal Engine and Blender, allowing me to adapt to various project roles.
+                    Recently, I’ve focused on expanding my knowledge in particles, cinemachine, and shader graphs.
+                    I know there’s always more to learn, and I’m excited to improve every day.
+                </p>
+
+                <p>
+                    View some of my projects here!
+                </p>
+                <div class="social-links">
+                    <a href="projects.html" class="project-btn">Projects</a>
+                </div>
+            </section>
+
+            <hr>
+
+            <section id="about">
+                <h2>Hard Skills</h2>
+                <ul class="sample-list">
+                    <li>C#, Python, HTMl5, CSS, SQL</li>
+                    <li>Unity, Unreal Engine, Blender, Maya</li>
+                    <li>Github, Fork, Trello</li>
+                </ul>
+            </section>
+
+
+        </div>
+
+        <hr>
+
+        <div class="side-boxes">
+            <section id="whats-new">
+                <h2>What's New</h2>
+                <div class="news-box">
+                    <div id="whats-new-scroll">
+                        <div class="scroll-content"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="currently-working">
+                <h2>Passions</h2>
+                <ul>
+                    <li><strong>Working on:</strong> Animations For Turtle Warriors</li>
+                    <li><strong>Learning:</strong> Texturing In Blender</li>
+                    <li><strong>Current Addiction:</strong> Old School Runescape</li>
+                    <li><strong>Favourite Song:</strong> "Easy Lover" By Philip Bailey, Phil Collins</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact-form">
+        <h2>Contact Me</h2>
+
+        <form id="contact-form-el" class="contact-box" action="https://formspree.io/f/xandwoyz" method="POST">
+            <label>
+                <span>Name</span>
+                <input type="text" name="name" required>
+            </label>
+
+            <label>
+                <span>Email</span>
+                <input type="email" name="email" required>
+            </label>
+
+            <label>
+                <span>Message</span>
+                <textarea name="message" rows="5" required></textarea>
+            </label>
+
+            <!-- honeypot (spam trap) -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0;">
+
+            <button type="submit">Send Message</button>
+
+            <!-- live status message -->
+            <div id="contact-status" class="status" role="status" aria-live="polite"></div>
+        </form>
+    </section>
+    <footer id="contact">
+        <p>2025 Luke Boulter All rights reserved</p>
+    </footer>
+
+    <div id="little-man">
+        <img id="man-image" src="./Images/mantalking.gif" alt="Little Man">
+        <div id="speech-bubble"></div>
+    </div>
+
+    <img id="ufo" src="./Images/ufo.png" alt="UFO">
+
+    <script is:inline src="/contact-form.js" defer></script>
+    <script is:inline src="/littleman.js"></script>
+    <script is:inline src="/whatsnew-loader.js"></script>
+
+</body>
+
+
+</html>

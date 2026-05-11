@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UE5 Shrine Environment - Luke Boulter</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a class="home-btn" href="/">Home</a></li>
+            <li><a href="projects">Projects</a></li>
+            <li><a href="blog">Blog</a></li>
+            <li><a href="ppitch">Project Pitch</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <div class="content-backdrop">
+            <header>
+                <h1>UE5 Shrine Environment</h1>
+            </header>
+
+            <div class="project-layout">
+                <!-- Left column: text content -->
+                <div class="project-content">
+                    <section>
+                        <h2>About the Environment</h2>
+                        <p>
+                            The <em>UE5 Shrine Environment</em> is a mood-driven scene centered around a weathered stone
+                            shrine and a mysterious idol. The goal was to build a believable, atmospheric space using
+                            efficient environment art techniques—balancing modular assets, trim sheets, and set dressing
+                            to guide the viewer’s eye toward the focal point.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>My Role</h2>
+                        <p>
+                            I worked solely as the <strong>Environment / Lighting Artist</strong>. I handled blockout, asset creation,
+                            material setup, composition, and lighting. I authored modular stone pieces and props in Blender,
+                            created tiling/trim materials, and assembled the scene in Unreal Engine 5 with careful attention
+                            to <strong>composition, value separation,</strong> and <strong>readability</strong> around the shrine.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>What I Learned</h2>
+                        <p>
+                            I refined my workflow for <strong>modular environment art</strong>—using trim sheets, smart UVs, and
+                            reusable kits to iterate quickly. I practiced scene composition and lighting for mood, dialing in
+                            contrast and accents so the shrine reads as the clear focal point. I also improved material authoring
+                            and asset optimization, keeping a clean, game-ready budget while preserving detail.
+                        </p>
+
+                        <p>
+                            <strong>
+                                Watch the full video here:
+                                <a href="https://www.youtube.com/watch?v=qULPSi9vI_I">YouTube Link</a>
+                            </strong>
+                        </p>
+                    </section>
+                </div>
+
+                <!-- Right column: gallery -->
+                <div class="project-gallery">
+                    <h2>Gallery</h2>
+                    <div class="gallery">
+                        <a href="./Images/shrine1.png" class="gallery-item">
+                            <img src="./Images/shrine1.png" alt="Shrine Environment Shot 1">
+                        </a>
+                        <a href="./Images/shrine2.png" class="gallery-item">
+                            <img src="./Images/shrine2.png" alt="Shrine Environment Shot 2">
+                        </a>
+                        <a href="./Images/shrine3.png" class="gallery-item">
+                            <img src="./Images/shrine3.png" alt="Shrine Environment Shot 3">
+                        </a>
+                        <a href="./Images/shrine4.png" class="gallery-item">
+                            <img src="./Images/shrine4.png" alt="Shrine Environment Shot 4">
+                        </a>
+                        <a href="./Images/shrine5.png" class="gallery-item">
+                            <img src="./Images/shrine5.png" alt="Shrine Environment Shot 5">
+                        </a>
+                        <a href="./Images/shrine6.png" class="gallery-item">
+                            <img src="./Images/shrine6.png" alt="Shrine Environment Shot 6">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>2025 Luke Boulter All rights reserved</p>
+    </footer>
+
+    <!-- Little Man + UFO -->
+    <div id="little-man">
+        <img id="man-image" src="./Images/maninactive.gif" alt="Little Man">
+        <div id="speech-bubble"></div>
+    </div>
+    <img id="ufo" src="./Images/ufo.png" alt="UFO">
+
+    <!-- Lightbox container -->
+    <div id="lightbox">
+        <img src="" alt="Expanded Image">
+    </div>
+
+    <!-- JS -->
+    <script is:inline src="/littleman.js"></script>
+    <script is:inline src="/lightbox.js"></script>
+</body>
+</html>

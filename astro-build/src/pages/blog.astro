@@ -1,0 +1,162 @@
+---
+import { getCollection, render } from 'astro:content';
+const posts = await getCollection('blog');
+posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+
+const renderedPosts = await Promise.all(
+  posts.map(async post => {
+    const { Content } = await render(post);
+    return { ...post, Content };
+  })
+);
+
+const devlogs = renderedPosts.filter(p => p.data.category === 'devlog');
+const tutorials = renderedPosts.filter(p => p.data.category === 'tutorial');
+const announcements = renderedPosts.filter(p => p.data.category === 'announcement');
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog - Luke Boulter</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a class="home-btn" href="/">Home</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/ppitch">Project Pitch</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-layout">
+        <div class="content-backdrop">
+            <header id="hero">
+                <h1>Blog</h1>
+                <p class="intro-text">
+                    Dev logs, notes, and announcements—organized into neat groups so you can quickly find what you're after.
+                </p>
+            </header>
+
+            <hr>
+
+            <div class="blog-groups-legend">
+                <span class="legend-pill pill-dev">Dev Logs</span>
+                <span class="legend-pill pill-tut">Tutorials</span>
+                <span class="legend-pill pill-announce">Announcements</span>
+            </div>
+
+            <section class="blog-group">
+                <h2 class="group-title">Dev Logs</h2>
+                <div class="post-grid">
+                    {devlogs.map(post => (
+                        <article class="post-card">
+                            <div class="post-thumb">
+                                <img src={post.data.image ?? '/Images/blog_dev.png'} alt="Dev Log Thumbnail" />
+                            </div>
+                            <div class="post-body">
+                                <h3 class="post-title">{post.data.title}</h3>
+                                <div class="post-meta">
+                                    <span class="post-date">{new Date(post.data.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                                    <span class="post-tag pill-dev">Dev Log</span>
+                                </div>
+                                <p class="post-excerpt">{post.data.description}</p>
+                                <div class="full-post" hidden>
+                                    <img class="full-post-hero" src={post.data.image ?? '/Images/blog_dev.png'} alt={post.data.title} />
+                                    <h2>{post.data.title}</h2>
+                                    <p><em>{new Date(post.data.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })} · Dev Log</em></p>
+                                    <post.Content />
+                                </div>
+                                <a href="#" class="post-link" onclick="openPostModal(this); return false;">Read more →</a>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
+            <section class="blog-group">
+                <h2 class="group-title">Tutorials</h2>
+                <div class="post-grid">
+                    {tutorials.map(post => (
+                        <article class="post-card">
+                            <div class="post-thumb">
+                                <img src={post.data.image ?? '/Images/blog_tut.png'} alt="Tutorial Thumbnail" />
+                            </div>
+                            <div class="post-body">
+                                <h3 class="post-title">{post.data.title}</h3>
+                                <div class="post-meta">
+                                    <span class="post-date">{new Date(post.data.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                                    <span class="post-tag pill-tut">Tutorial</span>
+                                </div>
+                                <p class="post-excerpt">{post.data.description}</p>
+                                <div class="full-post" hidden>
+                                    <img class="full-post-hero" src={post.data.image ?? '/Images/blog_tut.png'} alt={post.data.title} />
+                                    <h2>{post.data.title}</h2>
+                                    <p><em>{new Date(post.data.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })} · Tutorial</em></p>
+                                    <post.Content />
+                                </div>
+                                <a href="#" class="post-link" onclick="openPostModal(this); return false;">Read more →</a>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
+            <section class="blog-group">
+                <h2 class="group-title">Announcements</h2>
+                <div class="post-grid">
+                    {announcements.map(post => (
+                        <article class="post-card">
+                            <div class="post-thumb">
+                                <img src={post.data.image ?? '/Images/blog_ann.png'} alt="Announcement Thumbnail" />
+                            </div>
+                            <div class="post-body">
+                                <h3 class="post-title">{post.data.title}</h3>
+                                <div class="post-meta">
+                                    <span class="post-date">{new Date(post.data.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+                                    <span class="post-tag pill-announce">Announcement</span>
+                                </div>
+                                <p class="post-excerpt">{post.data.description}</p>
+                                <div class="full-post" hidden>
+                                    <img class="full-post-hero" src={post.data.image ?? '/Images/blog_ann.png'} alt={post.data.title} />
+                                    <h2>{post.data.title}</h2>
+                                    <p><em>{new Date(post.data.date).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' })} · Announcement</em></p>
+                                    <post.Content />
+                                </div>
+                                <a href="#" class="post-link" onclick="openPostModal(this); return false;">Read more →</a>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>2025 Luke Boulter All rights reserved</p>
+    </footer>
+
+    <div id="little-man">
+        <img id="man-image" src="/Images/maninactive.gif" alt="Little Man">
+        <div id="speech-bubble"></div>
+    </div>
+    <img id="ufo" src="/Images/ufo.png" alt="UFO">
+
+    <script is:inline src="/littleman.js"></script>
+
+    <div id="post-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-dialog" role="document" aria-labelledby="modal-title">
+            <button class="modal-close" aria-label="Close" title="Close" data-close-modal>✕</button>
+            <div class="modal-content"></div>
+        </div>
+    </div>
+
+    <script is:inline src="/blog-publisher.js"></script>
+</body>
+</html>
