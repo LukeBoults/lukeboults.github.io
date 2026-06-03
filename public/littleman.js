@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const speechBubble = document.getElementById("speech-bubble");
     const ufo = document.getElementById("ufo");
 
-    // Containers that have hover stuff
     const hoverMap = {
         ".navbar a": "Ooooo New Page!",
         ".home-btn": "Home Sweet Home!",
@@ -15,11 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
         ".profile-pic": "What a handsome devil!"
     };
 
-
     let isMuted = false;
     let ufoActive = false;
 
-    // Helpers
     const showBubble = (text) => {
         if (!isMuted) {
             speechBubble.textContent = text;
@@ -37,25 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const activateMan = (text) => {
         if (!isMuted && !ufoActive) {
-            setMan("Images/mantalking.gif");
+            setMan("/Images/mantalking.gif");
             showBubble(text);
         }
     };
 
     const deactivateMan = () => {
         if (!isMuted && !ufoActive) {
-            setMan("Images/maninactive.gif");
+            setMan("/Images/maninactive.gif");
             hideBubble();
         }
     };
 
     const restoreMan = () => {
-        // Called after UFO ends
         if (isMuted) {
-            setMan("Images/manmuted.gif");
+            setMan("/Images/manmuted.gif");
             hideBubble();
         } else {
-            setMan("Images/maninactive.gif");
+            setMan("/Images/maninactive.gif");
             hideBubble();
         }
     };
@@ -63,15 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const toggleMute = () => {
         isMuted = !isMuted;
         if (isMuted) {
-            setMan("Images/manmuted.gif");
+            setMan("/Images/manmuted.gif");
             hideBubble();
         } else {
-            // Only show inactive if no UFO event is active
-            if (!ufoActive) setMan("Images/maninactive.gif");
+            if (!ufoActive) setMan("/Images/maninactive.gif");
         }
     };
 
-    // Hover listeners
     for (const selector in hoverMap) {
         document.querySelectorAll(selector).forEach((el) => {
             el.addEventListener("mouseenter", () => {
@@ -83,11 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Click to mute/unmute
     manImage.addEventListener("click", toggleMute);
 
-
-    // UFO Fly-by Feature
     const UFO_DURATION = 2000;
     const REACTION_DURATION = 3000;
 
@@ -96,20 +87,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ufoActive = true;
 
-        // Randomize base flight height (keeps the wave centered around this Y)
         const baseTop = Math.round(window.innerHeight * (0.10 + Math.random() * 0.40));
         ufo.style.top = `${baseTop}px`;
 
-        // Start the flight animation (CSS keyframes handle wave and horizontal travel)
         ufo.style.opacity = '1';
         ufo.style.animation = 'ufoFly 2s linear forwards';
 
-        // After the flight completes, do the reaction
         setTimeout(() => {
             ufo.style.opacity = '0';
             ufo.style.animation = 'none';
 
-            setMan('Images/mansurprised.gif');
+            setMan('/Images/mansurprised.gif');
             if (!isMuted) {
                 showBubble('Did you just see that?');
             }
@@ -123,7 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function scheduleRandomUfo() {
-        // Random delay between 30s and 60s
         const delayMs = 30000 + Math.floor(Math.random() * 30000);
         setTimeout(() => {
             flyUfo();
