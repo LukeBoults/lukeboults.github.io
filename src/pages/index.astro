@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 const passionsData = await getCollection('passions');
-const passions = passionsData[0].data;
+const passions = passionsData[0]?.data;
 ---
 
 <!DOCTYPE html>
@@ -11,16 +11,16 @@ const passions = passionsData[0].data;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luke Boulter: Game Developer</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
         <ul>
             <li><a class="home-btn" href="/">Home</a></li>
-            <li><a href="projects">Projects</a></li>
-            <li><a href="blog">Blog</a></li>
-            <li><a href="ppitch">Project Pitch</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/ppitch">Project Pitch</a></li>
         </ul>
     </nav>
 
@@ -28,7 +28,7 @@ const passions = passionsData[0].data;
         <div class="content-backdrop">
             <header id="hero">
                 <div class="header-flex">
-                    <img src="./Images/lukepicture.jpg" alt="Luke Boulter" class="profile-pic" />
+                    <img src="/Images/lukepicture.jpg" alt="Luke Boulter" class="profile-pic" />
                     <div class="my-name">
                         <h1>Luke Boulter: Game Developer</h1>
                         <p class="intro-text">
@@ -38,6 +38,7 @@ const passions = passionsData[0].data;
                         <p class="contact-line">
                             <strong>Get in Touch!</strong>  lbenquiries2672@gmail.com
                         </p>
+                        <p class="intro-text">You are visitor number <img src="https://hits.sh/boulter.dev.svg?style=flat&label=&color=1a1a1a&labelColor=1a1a1a" alt="Visitor count" style="display:inline;vertical-align:middle;height:1.2em;border-radius:4px;" /></p>
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/luke-boulter-5b6928321" class="social-btn">LinkedIn</a>
                             <a href="https://itch.io/LukeBoulter" class="social-btn">itch.io</a>
@@ -45,7 +46,6 @@ const passions = passionsData[0].data;
                         </div>
                     </div>
                 </div>
-
             </header>
 
             <hr>
@@ -53,12 +53,11 @@ const passions = passionsData[0].data;
             <section id="projects">
                 <h2>More About Me</h2>
                 <p class="intro-text">
-                    During my bachelor’s degree, I developed a broad range of skills that make me a valuable addition to any team.
-                    I’ve gained strong experience with Unity, Unreal Engine and Blender, allowing me to adapt to various project roles.
-                    Recently, I’ve focused on expanding my knowledge in particles, cinemachine, and shader graphs.
-                    I know there’s always more to learn, and I’m excited to improve every day.
+                    During my bachelor's degree, I developed a broad range of skills that make me a valuable addition to any team.
+                    I've gained strong experience with Unity, Unreal Engine and Blender, allowing me to adapt to various project roles.
+                    Recently, I've focused on expanding my knowledge in particles, cinemachine, and shader graphs.
+                    I know there's always more to learn, and I'm excited to improve every day.
                 </p>
-
                 <p>
                     View some of my projects here!
                 </p>
@@ -77,8 +76,6 @@ const passions = passionsData[0].data;
                     <li>Github, Fork, Trello</li>
                 </ul>
             </section>
-
-
         </div>
 
         <hr>
@@ -93,47 +90,42 @@ const passions = passionsData[0].data;
                 </div>
             </section>
 
-            <section id="currently-working">
-                <h2>Passions</h2>
-                <ul>
-                    <li><strong>Working on:</strong> {passions.working_on}</li>
-                    <li><strong>Learning:</strong> {passions.learning}</li>
-                    <li><strong>Current Addiction:</strong> {passions.current_addiction}</li>
-                    <li><strong>Favourite Song:</strong> {passions.favourite_song}</li>
-                </ul>
-            </section>
+            {passions && (
+                <section id="currently-working">
+                    <h2>Passions</h2>
+                    <ul>
+                        <li><strong>Working on:</strong> {passions.working_on}</li>
+                        <li><strong>Learning:</strong> {passions.learning}</li>
+                        <li><strong>Current Addiction:</strong> {passions.current_addiction}</li>
+                        <li><strong>Favourite Song:</strong> {passions.favourite_song}</li>
+                    </ul>
+                </section>
+            )}
         </div>
     </div>
 
     <!-- Contact Section -->
     <section id="contact-form">
         <h2>Contact Me</h2>
-
         <form id="contact-form-el" class="contact-box" action="https://formspree.io/f/xandwoyz" method="POST">
             <label>
                 <span>Name</span>
                 <input type="text" name="name" required>
             </label>
-
             <label>
                 <span>Email</span>
                 <input type="email" name="email" required>
             </label>
-
             <label>
                 <span>Message</span>
                 <textarea name="message" rows="5" required></textarea>
             </label>
-
-            <!-- honeypot (spam trap) -->
             <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0;">
-
             <button type="submit">Send Message</button>
-
-            <!-- live status message -->
             <div id="contact-status" class="status" role="status" aria-live="polite"></div>
         </form>
     </section>
+
     <footer id="contact">
         <p>2025 Luke Boulter All rights reserved</p>
     </footer>
@@ -148,8 +140,5 @@ const passions = passionsData[0].data;
     <script is:inline src="/contact-form.js" defer></script>
     <script is:inline src="/littleman.js"></script>
     <script is:inline src="/whatsnew-loader.js"></script>
-
 </body>
-
-
 </html>
