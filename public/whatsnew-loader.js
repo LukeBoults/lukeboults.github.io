@@ -12,18 +12,25 @@
 
     let posts = readFromLocal();
     if (posts.length) {
-        render(posts);
-    } else if (location.protocol.startsWith('http')) {
-        // Hosted: try fetch fallback
+        render(posts); // render cached version immediately
+    }
+
+    // Always fetch fresh data in background
+    if (location.protocol.startsWith('http')) {
         fetch('/blog', { cache: 'no-store' })
             .then(r => r.text())
             .then(html => {
-                posts = scrapeFromHtml(html);
-                render(posts);
+                const fresh = scrapeFromHtml(html);
+                if (fresh.length) {
+                    try { localStorage.setItem('lb_blog_posts', JSON.stringify(fresh)); }
+                    catch (e) {}
+                    render(fresh); // re-render with fresh data
+                } else if (!posts.length) {
+                    render([]);
+                }
             })
-            .catch(() => render([]));
-    } else {
-        // file:// and no local data
+            .catch(() => { if (!posts.length) render([]); });
+    } else if (!posts.length) {
         render([]);
     }
 
