@@ -38,7 +38,7 @@ const passions = passionsData[0]?.data;
                         <p class="contact-line">
                             <strong>Get in Touch!</strong>  lbenquiries2672@gmail.com
                         </p>
-                        <p class="intro-text">You are visitor number <img src="https://hits.sh/boulter.dev.svg?style=flat&label=&color=1a1a1a&labelColor=1a1a1a" alt="Visitor count" style="display:inline;vertical-align:middle;height:1.2em;border-radius:4px;" /></p>
+                        <p class="intro-text">You are visitor number <strong id="visitor-count"></strong></p>
                         <div class="social-links">
                             <a href="https://www.linkedin.com/in/luke-boulter-5b6928321" class="social-btn">LinkedIn</a>
                             <a href="https://itch.io/LukeBoulter" class="social-btn">itch.io</a>
@@ -140,5 +140,15 @@ const passions = passionsData[0]?.data;
     <script is:inline src="/contact-form.js" defer></script>
     <script is:inline src="/littleman.js"></script>
     <script is:inline src="/whatsnew-loader.js"></script>
+    <script is:inline>
+        fetch('https://api.counterapi.dev/v1/boulterdev/visits/up')
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('visitor-count').textContent = data.count.toLocaleString();
+            })
+            .catch(() => {
+                document.getElementById('visitor-count').textContent = '—';
+            });
+    </script>
 </body>
 </html>
