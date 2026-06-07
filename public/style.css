@@ -717,7 +717,7 @@ footer {
 /* Pills you already have are reused; ensure they exist in CSS: 
    .legend-pill, .post-tag, .pill-dev, .pill-tut, .pill-announce */
 
-/* If you’re using the :has() accent method, keep these too: */
+/* If youï¿½re using the :has() accent method, keep these too: */
 .post-card:has(.pill-dev) {
     --accent: #6aa9ff;
 }
@@ -952,7 +952,7 @@ footer {
 /* status message */
 .status {
     margin-top: 0.5rem;
-    min-height: 1.2rem; /* reserves space so layout doesn’t jump */
+    min-height: 1.2rem; /* reserves space so layout doesnï¿½t jump */
     font-size: 0.9rem;
 }
 
@@ -963,3 +963,71 @@ footer {
     .status.error {
         color: #ff9e9e;
     }
+
+@media (max-width: 768px) {
+    /* Stack main layout vertically */
+    .main-layout {
+        flex-direction: column;
+        padding: 0 0.5rem;
+        gap: 1rem;
+    }
+
+    /* Full width content */
+    .content-backdrop {
+        flex: none;
+        width: 100%;
+        padding: 1.5rem;
+        box-sizing: border-box;
+    }
+
+    /* Side boxes full width */
+    .side-boxes {
+        flex: none;
+        width: 100%;
+    }
+
+    /* Stack profile pic above text */
+    .header-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .profile-pic {
+        width: 100px;
+    }
+
+    /* Smaller heading */
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    /* Navbar wrapping fix */
+    .navbar ul {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding: 0.5rem;
+        justify-content: center;
+    }
+
+    .navbar a {
+        padding: 0.5rem 0.4rem;
+        font-size: 0.8rem;
+    }
+
+    /* Hide little man and UFO on mobile */
+    #little-man, #ufo {
+        display: none;
+    }
+
+    /* Contact form full width */
+    #contact-form {
+        margin: 1rem 0.5rem;
+        padding: 1.5rem;
+    }
+
+    /* What's new box height */
+    #whats-new-scroll {
+        height: 200px;
+    }
+}
