@@ -141,14 +141,14 @@ const passions = passionsData[0]?.data;
     <script is:inline src="/littleman.js"></script>
     <script is:inline src="/whatsnew-loader.js"></script>
     <script is:inline>
-        fetch('https://api.counterapi.dev/v1/boulterdev/visits/up')
-            .then(r => r.json())
-            .then(data => {
-                document.getElementById('visitor-count').textContent = data.count.toLocaleString();
-            })
-            .catch(() => {
-                document.getElementById('visitor-count').textContent = '—';
-            });
+    fetch('https://hits.sh/boulter.dev.json')
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById('visitor-count').textContent = Number(data.total).toLocaleString();
+        })
+        .catch(() => {
+            document.getElementById('visitor-count').textContent = '—';
+        });
     </script>
 </body>
 </html>
