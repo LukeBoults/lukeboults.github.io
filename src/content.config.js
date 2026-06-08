@@ -25,7 +25,7 @@ const blog = defineCollection({
 });
 
 const passions = defineCollection({
-  loader: file("src/content/passions.json"),
+  loader: glob({ pattern: "**/*.json", base: "./src/content/passions" }),
   schema: z.object({
     working_on: z.string(),
     learning: z.string(),

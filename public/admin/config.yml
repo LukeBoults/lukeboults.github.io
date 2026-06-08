@@ -43,12 +43,13 @@ collections:
 
   - name: "passions"
     label: "Passions"
-    files:
-      - label: "Passions"
-        name: "passions"
-        file: "src/content/passions.json"
-        fields:
-          - { label: "Working On", name: "working_on", widget: "string" }
-          - { label: "Learning", name: "learning", widget: "string" }
-          - { label: "Current Addiction", name: "current_addiction", widget: "string" }
-          - { label: "Favourite Song", name: "favourite_song", widget: "string" }
+    folder: "src/content/passions"
+    create: false
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Working On", name: "working_on", widget: "string" }
+      - { label: "Learning", name: "learning", widget: "string" }
+      - { label: "Current Addiction", name: "current_addiction", widget: "string" }
+      - { label: "Favourite Song", name: "favourite_song", widget: "string" }
+Then move your passions data to a folder instead of a single file. Create
