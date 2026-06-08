@@ -52,4 +52,3 @@ collections:
       - { label: "Learning", name: "learning", widget: "string" }
       - { label: "Current Addiction", name: "current_addiction", widget: "string" }
       - { label: "Favourite Song", name: "favourite_song", widget: "string" }
-Then move your passions data to a folder instead of a single file. Create
