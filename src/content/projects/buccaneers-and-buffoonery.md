@@ -4,6 +4,7 @@ description: Fight to claim dominion over the seas. Collect resources, upgrade
   facilities and sink enemies in this multiplayer pirate adventure
 image: /Images/screenshot-2026-05-11-at-5.29.35 pm.png
 date: 2026-05-11T17:30:00.000+10:00
+category: games
 gallery:
   - /Images/screenshot-2026-05-11-at-5.29.35 pm.png
 ---

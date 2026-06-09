@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 const projects = await getCollection('projects');
 projects.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+const gameProjects = projects.filter(p => p.data.category === 'games');
+const cyberProjects = projects.filter(p => p.data.category === 'cybersecurity');
 ---
 
 <!DOCTYPE html>
@@ -29,8 +31,8 @@ projects.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
             <header id="hero">
                 <h1>Project List</h1>
                 <p class="intro-text">
-                    Here are some of the games and interactive experiences I've worked on.
-                    Each project represents my journey as a developer, combining design, programming, and 3D Modelling.
+                    Here are some of the games and cybersecurity projects I've worked on.
+                    Each project represents my journey as a developer, combining design, programming, and problem solving.
                 </p>
                 <p class="intro-text">
                     <strong>Click on projects to find out more!</strong>
@@ -39,8 +41,9 @@ projects.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
 
             <hr>
 
+            <h2 class="category-heading">Games</h2>
             <section id="project-gallery" class="projects-grid">
-                {projects.map(project => (
+                {gameProjects.length > 0 ? gameProjects.map(project => (
                     <div class="project-row">
                         <h2>{project.data.title}</h2>
                         <a class="project-card" href={project.data.link ?? `/projects/${project.id}`}>
@@ -53,7 +56,27 @@ projects.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
                             </div>
                         </a>
                     </div>
-                ))}
+                )) : <p class="no-projects">No projects yet — check back soon!</p>}
+            </section>
+
+            <hr>
+
+            <h2 class="category-heading">Cybersecurity</h2>
+            <section class="projects-grid">
+                {cyberProjects.length > 0 ? cyberProjects.map(project => (
+                    <div class="project-row">
+                        <h2>{project.data.title}</h2>
+                        <a class="project-card" href={project.data.link ?? `/projects/${project.id}`}>
+                            <img src={project.data.image} alt={`${project.data.title} Screenshot`} class="project-img" />
+                            <div class="overlay">
+                                <div class="overlay-content">
+                                    <span class="overlay-title">{project.data.title}</span>
+                                    <p class="overlay-desc">{project.data.description}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                )) : <p class="no-projects">No projects yet — check back soon!</p>}
             </section>
         </div>
     </div>

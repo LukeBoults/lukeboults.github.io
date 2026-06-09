@@ -9,6 +9,7 @@ const projects = defineCollection({
     image: z.string().optional(),
     link: z.string().optional(),
     date: z.date(),
+    category: z.enum(['games', 'cybersecurity']),
     gallery: z.array(z.string()).optional(),
   })
 });
