@@ -9,6 +9,7 @@ image: /Images/ciscoproject_thumb.png
 date: 2026-04-02T14:22:00.000+10:00
 category: cybersecurity
 gallery:
+  - /Images/ciscoproject_thumb.png
   - /Images/ciscoisp.png
   - /Images/image_2026-06-22_191629608.png
 ---
