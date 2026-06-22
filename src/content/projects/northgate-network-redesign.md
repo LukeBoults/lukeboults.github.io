@@ -6,7 +6,7 @@ description: Redesigned a flat, unstructured company network into a segmented,
   no segmentation, a common real-world problem in organisations that grow
   without a formal network plan.
 image: /Images/ciscoproject_thumb.png
-link: https://drive.google.com/file/d/15eFaCXJkV6sh3O-iM0En59PkumAqAXqI/view?usp=sharing
+link: ""
 date: 2026-04-02T14:33:00.000+10:00
 category: cybersecurity
 gallery:
