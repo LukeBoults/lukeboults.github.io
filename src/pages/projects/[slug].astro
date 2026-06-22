@@ -51,7 +51,9 @@ const { Content } = await render(project);
                     <h2>Gallery</h2>
                     <div class="gallery">
                         {project.data.gallery.map(img => (
-                            <img src={img} alt={project.data.title} />
+                            <a href={img} class="gallery-item">
+                                <img src={img} alt={project.data.title} />
+                            </a>
                         ))}
                     </div>
                 </div>
@@ -63,6 +65,10 @@ const { Content } = await render(project);
     <footer id="contact">
         <p>2025 Luke Boulter All rights reserved</p>
     </footer>
+
+    <div id="lightbox">
+        <img src="" alt="Enlarged view" />
+    </div>
 
     <div id="little-man">
         <img id="man-image" src="/Images/maninactive.gif" alt="Little Man">
