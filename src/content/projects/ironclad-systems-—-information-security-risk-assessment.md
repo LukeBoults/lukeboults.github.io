@@ -8,6 +8,22 @@ date: 2026-04-04T15:45:00.000+10:00
 category: cybersecurity
 gallery:
   - /Images/screenshot-2026-06-22-at-7.43.42 pm.png
+  - /Images/screenshot-2026-06-22-at-7.44.39 pm.png
+  - /Images/screenshot-2026-06-22-at-7.47.29 pm.png
+  - /Images/screenshot-2026-06-22-at-7.47.52 pm.png
+  - /Images/screenshot-2026-06-22-at-7.48.08 pm.png
+  - /Images/screenshot-2026-06-22-at-7.48.20 pm.png
+  - /Images/screenshot-2026-06-22-at-7.50.19 pm.png
+  - /Images/screenshot-2026-06-22-at-7.50.36 pm.png
+  - /Images/screenshot-2026-06-22-at-7.50.53 pm.png
+  - /Images/screenshot-2026-06-22-at-7.51.35 pm.png
+  - /Images/screenshot-2026-06-22-at-7.51.53 pm.png
+  - /Images/screenshot-2026-06-22-at-7.52.13 pm.png
+  - /Images/screenshot-2026-06-22-at-7.52.33 pm.png
+  - /Images/screenshot-2026-06-22-at-7.53.02 pm.png
+  - /Images/screenshot-2026-06-22-at-7.53.14 pm.png
+  - /Images/screenshot-2026-06-22-at-7.53.27 pm.png
+  - /Images/screenshot-2026-06-22-at-7.53.53 pm.png
 ---
 **Subject: IFN635 — Cybersecurity and Governance**
 
