@@ -19,7 +19,7 @@ gallery:
 
 Conducted a formal information security risk assessment for Ironclad Systems, a fictional Australian defence contractor specialising in drone and weapons systems manufacturing. The client held DoD contracts and NATO-aligned partnerships, making the stakes of a security breach extremely high.
 
-**What I Did**
+**What We Did**
 
 Assessed 6 critical information assets including drone control system source code, classified operational data, and communication infrastructure
 Identified and scored 12 risks across a likelihood/impact matrix, producing 9 critical and 3 high severity findings
