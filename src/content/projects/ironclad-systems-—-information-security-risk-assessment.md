@@ -1,5 +1,5 @@
 ---
-title: Ironclad Systems — Information Security Risk Assessment
+title: Information Security Risk Assessment
 description: Conducted a formal information security risk assessment for
   Ironclad Systems, a fictional Australian defence contractor specialising in
   drone and weapons systems manufacturing. The client held DoD contracts and
